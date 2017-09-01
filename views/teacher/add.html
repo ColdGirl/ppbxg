@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
+    <link rel="stylesheet" type="text/css" href="/public/assets/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css">
     <?php include('./views/common/style.html'); ?>
 </head>
 <body>
@@ -47,23 +48,29 @@
             {{/if}}
             <label for="" class="col-xs-3 control-label">姓名</label>
             <div class="col-xs-4">
-              <input type="text" name="tc_name" value="{{tc_name}}" class="form-control input-splaceholder="讲师名称">
+              <input type="text" data-required data-description="tc_nameee" data-describedby="tcNamePositon" name="tc_name" value="{{tc_name}}" class="form-control input-splaceholder="讲师名称">
             </div>
+            <!-- dingzhi位置是在后面 -->
+            <div class="col-xs-4" id="tcNamePositon"></div>
             </div>
            <!--  编辑的时候密码是不可用的 不存在的时候显示-->
            {{if !tc_id}}
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">密码</label>
                 <div class="col-xs-4">
-                    <input type="password" name="tc_pass" class="form-control input-sm">
+                    <input type="password" data-required data-description="tc_passss" data-describedby="tcPassPositon" data-pattern="^\d{6}$" name="tc_pass" class="form-control input-sm">
                 </div>
+                 <!-- dingzhi位置是在后面 -->
+                  <div class="col-xs-4" id="tcPassPositon"></div>
             </div>
             {{/if}}
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">入职时间</label>
                 <div class="col-xs-4">
-                    <input data-provide="datepicker" data-date-language="zh-CN" data-date-format="yyyy-mm-dddd" type="text" name="tc_join_date" value="{{tc_join_date}}" class="form-control input-sm">
+                    <input data-required data-description="tc_join_dateee" data-describedby="tcJoinDatePositon" data-provide="datepicker" data-date-language="zh-CN" data-date-format="yyyy-mm-dd" type="text" name="tc_join_date" value="{{tc_join_date}}" class="form-control input-sm">
                 </div>
+                 <!-- dingzhi位置是在后面 -->
+                <div class="col-xs-4" id="tcJoinDatePositon"></div>
             </div>
             <!-- 1是讲师 0 是管理员 动态设置选中的是那个角色 -->
             <div class="form-group">
@@ -88,7 +95,7 @@
                 </div>
                  <div class="form-group">
                     <div class="col-xs-7">
-                    <input type="button" id="teacherBtn" class="btn btn-success btn-sm pull-right"  value="提 交">
+                    <input type="submit" id="teacherBtn" class="btn btn-success btn-sm pull-right"  value="提 交">
                     </div>                          
                 </div>
     </form>

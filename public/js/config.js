@@ -12,7 +12,8 @@ require.config({
 		util: '../js/util',
 		teacheradd: '../js/teacher-add',
 		datepicker : 'bootstrap-datepicker/js/bootstrap-datepicker',
-		language : 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min'
+		language : 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
+		validate : 'validate/jquery-validate.min',
 	},
 	/*bootstrap不是标准的模块 需要转化成标准的模块*/
 	shim :{
@@ -22,6 +23,9 @@ require.config({
 		},
 		language : {
 			deps : ['jquery','datepicker']
+		},
+		validate : {
+			deps : ['jquery']
 		}
 	}
 });
