@@ -1,6 +1,6 @@
 define(['jquery','template','util','bootstrap'],function($,template,util){
 	var ret = util.queryString('uname');
-	console.log(ret)
+	//console.log(ret)
 	//根据地址栏的地址和跳转的url匹配 设置左边导航菜单选中
 	//根据参数的地址通过选择器和href地址匹配 添加类
 	//$('.navs a[href=" '+location.pathname +'"]').addClass('active');
@@ -13,7 +13,7 @@ define(['jquery','template','util','bootstrap'],function($,template,util){
 		url : '/api/teacher',
 		dataType: 'json',
 		success: function(data){
-			console.log(data)
+			//console.log(data)
 			//解析数据渲染页面
 			var html = template('teacherTpl',{list: data.result});
 			$('#teacherInfo').html(html);
