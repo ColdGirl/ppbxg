@@ -9,7 +9,8 @@ require.config({
 		login : '../js/login',
 		index : '../js/index',
 		teacherlist: '../js/teacher-list',
-		util: '../js/util'
+		util: '../js/util',
+		teacheradd: '../js/teacher-add'
 	},
 	/*bootstrap不是标准的模块 需要转化成标准的模块*/
 	shim :{

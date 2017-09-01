@@ -147,7 +147,8 @@
         <td data-tcId="{{$value.tc_id}}" data-status="{{$value.tc_status}}">
         <!-- 在js文件里面可以得到 -->
             <a href="#teacherModal" class="btn btn-info btn-xs preview">查 看</a>
-            <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
+           <!--  问号后面获取编辑的id -->
+            <a href="/teacher/add?tc_id={{$value.tc_id}}" class="btn btn-info btn-xs">编 辑</a>
             <!-- enable 启用 disable 注销 -->
             <a href="javascript:;" class="btn btn-warning btn-xs eod">
                 {{if $value.tc_status == 0}}

@@ -1,4 +1,6 @@
 define(['jquery','template','util','bootstrap'],function($,template,util){
+	var ret = util.queryString('uname');
+	console.log(ret)
 	//根据地址栏的地址和跳转的url匹配 设置左边导航菜单选中
 	//根据参数的地址通过选择器和href地址匹配 添加类
 	//$('.navs a[href=" '+location.pathname +'"]').addClass('active');
