@@ -1,4 +1,4 @@
-define(['jquery','template','util','datepicker','language','validate'],function($,template,util){
+define(['jquery','template','util','datepicker','language','validate','form'],function($,template,util){
 	//设置菜单选中
 	util.setMenu('/teacher/list');	
 	//获取编辑的id
@@ -36,6 +36,17 @@ define(['jquery','template','util','datepicker','language','validate'],function(
             valid: function(){
                 console.log("ok");
                 //提交表单这里
+                $(this).ajaxSubmit({
+                    type: "post",
+                    url : url,
+                    dataType: 'json',
+                    success: function(data){
+                        if(data.code == 200){
+                            location.href = '/teacher/list';
+                        }
+                    }
+
+                });
             },
             //所有的验证通过
             /*提示信息 和参数的配置*/
