@@ -14,7 +14,8 @@ require.config({
 		datepicker : 'bootstrap-datepicker/js/bootstrap-datepicker',
 		language : 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
 		validate : 'validate/jquery-validate.min',
-		form: 'jquery-form/jquery.form'
+		form: 'jquery-form/jquery.form',
+		settings : '../js/settings'
 	},
 	/*bootstrap不是标准的模块 需要转化成标准的模块*/
 	shim :{
