@@ -1,4 +1,5 @@
-define(['jquery','template','util','ckeditor','uploadify','datepicker','language','region','validate','form'],
+define(['jquery','template','util','ckeditor','uploadify','datepicker','language',
+	'region','validate','form','state'],
 	function($,template,util,CKEDITOR){
 	//设置导航菜单选中
 	util.setMenu('/main/index');

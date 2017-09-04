@@ -18,7 +18,9 @@ require.config({
 		settings : '../js/settings',
 		uploadify: 'uploadify/jquery.uploadify.min',
 		region : 'jquery-region/jquery.region',
-		ckeditor: 'ckeditor/ckeditor'
+		ckeditor: 'ckeditor/ckeditor',
+		nprogress: 'nprogress/nprogress',
+		state: '../js/state'
 	},
 	/*bootstrap不是标准的模块 需要转化成标准的模块*/
 	shim :{

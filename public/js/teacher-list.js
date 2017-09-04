@@ -1,4 +1,4 @@
-define(['jquery','template','util','bootstrap'],function($,template,util){
+define(['jquery','template','util','bootstrap','state'],function($,template,util){
 	var ret = util.queryString('uname');
 	//console.log(ret)
 	//根据地址栏的地址和跳转的url匹配 设置左边导航菜单选中
