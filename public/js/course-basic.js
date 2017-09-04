@@ -1,4 +1,4 @@
-define(['jquery','template','util'],function($,template,util){
+define(['jquery','template','util','ckeditor','validate','form'],function($,template,util,CKEDITOR){
 	//设置导航选中
 	util.setMenu('/course/course_add');
 	//课程添加和查看是同一个页面 都需要将id带过去
@@ -43,6 +43,32 @@ define(['jquery','template','util'],function($,template,util){
 					}
 				});
 			});
+
+			//处理附文本
+			CKEDITOR.replace('ckeditor')
+			//处理表单提交
+			$('#basicForm').validate({
+				sendForm: false,
+				valid: function(){
+					//同步数据信息 处理附文本的提交
+					for (var instance in CKEDITOR.instances){
+						CKEDITOR.instances[instance].updateElement();
+					}
+					//提交表单
+					$(this).ajaxSubmit({
+						type: 'post',
+						url: '/api/course/update/basic',
+						data: {cs_id: csId},//不需要加隐藏域了
+						dataType: 'json',
+						success: function(data){
+							if(data.code == 200){
+								location.href = '/course/picture?cs_id=' + data.result.cs_id;
+							}
+						}
+					});
+				}
+			})
+
 		}
 	});
 });
