@@ -16,7 +16,9 @@ require.config({
 		validate : 'validate/jquery-validate.min',
 		form: 'jquery-form/jquery.form',
 		settings : '../js/settings',
-		uploadify: 'uploadify/jquery.uploadify.min'
+		uploadify: 'uploadify/jquery.uploadify.min',
+		region : 'jquery-region/jquery.region',
+
 	},
 	/*bootstrap不是标准的模块 需要转化成标准的模块*/
 	shim :{
