@@ -18,7 +18,7 @@ require.config({
 		settings : '../js/settings',
 		uploadify: 'uploadify/jquery.uploadify.min',
 		region : 'jquery-region/jquery.region',
-
+		ckeditor: 'ckeditor/ckeditor'
 	},
 	/*bootstrap不是标准的模块 需要转化成标准的模块*/
 	shim :{
@@ -34,6 +34,11 @@ require.config({
 		},
 		uploadify : {
 			deps : ['jquery']
+		},
+		ckeditor : {
+			/*导出成员 源代码中CKEDITOR被加到了window中*/
+			exports : 'CKEDITOR'
+
 		}
 	}
 });
