@@ -15,7 +15,8 @@ require.config({
 		language : 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
 		validate : 'validate/jquery-validate.min',
 		form: 'jquery-form/jquery.form',
-		settings : '../js/settings'
+		settings : '../js/settings',
+		uploadify: 'uploadify/jquery.uploadify.min'
 	},
 	/*bootstrap不是标准的模块 需要转化成标准的模块*/
 	shim :{
@@ -27,6 +28,9 @@ require.config({
 			deps : ['jquery','datepicker']
 		},
 		validate : {
+			deps : ['jquery']
+		},
+		uploadify : {
 			deps : ['jquery']
 		}
 	}
