@@ -1,4 +1,4 @@
-define(['jquery','template','util','ckeditor','uploadify','datepicker','language','region'],
+define(['jquery','template','util','ckeditor','uploadify','datepicker','language','region','validate','form'],
 	function($,template,util,CKEDITOR){
 	//设置导航菜单选中
 	util.setMenu('/main/index');
@@ -42,9 +42,43 @@ define(['jquery','template','util','ckeditor','uploadify','datepicker','language
 				{ name: 'forms', groups: [ 'forms' ] },
 				{ name: 'tools', groups: [ 'tools' ] },
 				{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] }
-     		 
      		 ]
      		});
+
+     		 //处理表单提交
+     		 $('#settingsForm').validate({
+     		 	sendForm: false, 
+     		 	//所有的验证都通过 提交表单
+     		 	valid: function(){
+     		 		//把富文本的数据同步到表单域中 实例 一个页面中可能有多个文本框
+     		 		for(var instance in CKEDITOR.instances){
+     		 		//取出来其中一实例 后面是对象 前面是属性 通过对象取得属性 在属性复制的时候讲过
+     		 		//内部提供的方法 目的是更新属性
+     		 		CKEDITOR.instances[instance].updateElement();
+     		 		}
+     		 		//获取家乡数据
+	     		 	var p = $('#p options:selected').text();
+	     		 	var c = $('#c options:selected').text();
+	     		 	var d = $('#d options:selected').text();
+	     		 	var hometown = p + '|' + c + '|' + d; 
+     		 		$(this).ajaxSubmit({
+     		 			type: 'post',
+     		 			url: '/api/teacher/modify',//更新个人资料
+     		 			data: {tc_hometown : hometown},
+     		 			dataType: 'json',
+     		 			success: function(data){
+     		 				if(data.code == 200){
+     		 				//刷新页面
+     		 					location.reload();
+     		 				}
+     		 			}
+     		 	
+     		 		})
+     		 	}
+     		 })
+
+     		 //附文本插件的内容是在iframe子页面里面 应该在textarea里面 
+     		 //他里面还是原来默认的数据 把iframe子页面里面的数据同步到texterea中
 		}
 
 	});
