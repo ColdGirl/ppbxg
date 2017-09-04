@@ -23,6 +23,26 @@ define(['jquery','template','util'],function($,template,util){
 			}
 			var html = template('coursebasicTpl',data.result);
 			$('#coursebasicInfo').html(html);
+			//处理二级联动分类
+			$('#firstType').change(function(){
+				//alert(12); 
+				//获取当前点击的一击分类id
+				var fId = $(this).val();
+				console.log(fId);
+				//根据id查询接口调用二级分类
+				$.ajax({
+					type: 'get',
+					url: '/api/category/child',
+					dataType: 'json',
+					data: {cg_id: fId},
+					success: function(data){
+						//console.log(data)
+						var tpl = '<option value="">请选择二级分类...<option>{{each list}}<option value="{{$value.cg_id}}">{{$value.cg_name}}<option>{{/each}}';
+						var html = template.render(tpl,{list: data.result});
+						$('#secondType').html(html);
+					}
+				});
+			});
 		}
 	});
 });
