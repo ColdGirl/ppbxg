@@ -4,7 +4,7 @@ define(['jquery'],function($){
 		//设置导航菜单选中
 		setMenu : function(path){
 			//根据参数的地址通过选择器和href地址匹配 添加类
-			$('.navs a[href="'+path+'"]').addClass('active');
+			$('.navs a[href="'+path+'"]').addClass('active').closest('ul').show();
 			//筛选出当前点的是那个按钮
 		},
 		queryString: function(key){

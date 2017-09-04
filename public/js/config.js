@@ -20,7 +20,8 @@ require.config({
 		region : 'jquery-region/jquery.region',
 		ckeditor: 'ckeditor/ckeditor',
 		nprogress: 'nprogress/nprogress',
-		state: '../js/state'
+		state: '../js/state',
+		courselist: '../js/course-list'
 	},
 	/*bootstrap不是标准的模块 需要转化成标准的模块*/
 	shim :{
