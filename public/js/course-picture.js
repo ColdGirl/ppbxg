@@ -41,7 +41,7 @@ define(['jquery','template','util','uploadify','jcrop','form'],function($,templa
 					boxWidth: 400
 				},function(){
 					//销毁之前的实例 
-					nowCrop && nowCrop.destroy();//如果不这样 空调用会报错 
+					nowcrop && nowcrop.destroy();//如果不这样 空调用会报错 
 					//缓冲当前的实例
 					nowcrop = this;
 					//设置预览效果

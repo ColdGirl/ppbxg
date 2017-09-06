@@ -25,7 +25,8 @@ require.config({
 		courseadd: '../js/course-add',
 		coursebasic: '../js/course-basic',
 		coursepicture: '../js/course-picture',
-		jcrop: 'jcrop/js/Jcrop'//不是标准插件
+		jcrop: 'jcrop/js/Jcrop',//不是标准插件
+		courselesson: '../js/course-lesson'
 	},
 	/*bootstrap不是标准的模块 需要转化成标准的模块*/
 	shim :{
