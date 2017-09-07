@@ -11,13 +11,13 @@ define(['jquery'],function($){
 			//url后面的问号后面的参数值 带问号 location是bom对象
 			var param = location.search.substring(1);
 			var result = null;
-			console.log(param);//uname=lisi&age=18
+			//console.log(param);//uname=lisi&age=18
 			if(param){
 				var kvs = param.split('&');
-				console.log(kvs);//数组  ["uname=lisi", "age=18"]
+				//console.log(kvs);//数组  ["uname=lisi", "age=18"]
 			    kvs.forEach(function(item){//item是其中的一项数据
                  var kv = item.split('=');
-                 console.log(kv);// ["uname", "lisi"] ["age", "18"]
+                 //console.log(kv);// ["uname", "lisi"] ["age", "18"]
                  if(key == kv[0]){
                  	result = kv[1];//获取属性值
                  	return false;

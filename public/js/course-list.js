@@ -7,7 +7,6 @@ define(['jquery','template','util'],function($,template,util){
 		url: '/api/course',
 		dataType: 'json',
 		success: function(data){
-			//console.log(data);
 			//解析数据 渲染页面
 			var html = template('courselistTpl',{list: data.result});
 			$('#courselistInfo').html(html);

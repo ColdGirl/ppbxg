@@ -21,7 +21,12 @@ require.config({
 		ckeditor: 'ckeditor/ckeditor',
 		nprogress: 'nprogress/nprogress',
 		state: '../js/state',
-		courselist: '../js/course-list'
+		courselist: '../js/course-list',
+		courseadd: '../js/course-add',
+		coursebasic: '../js/course-basic',
+		coursepicture: '../js/course-picture',
+		jcrop: 'jcrop/js/Jcrop',//不是标准插件
+		courselesson: '../js/course-lesson'
 	},
 	/*bootstrap不是标准的模块 需要转化成标准的模块*/
 	shim :{
@@ -42,6 +47,9 @@ require.config({
 			/*导出成员 源代码中CKEDITOR被加到了window中*/
 			exports : 'CKEDITOR'
 
-		}
+		},
+		jcrop: {
+			deps: ['jquery']
+		} 
 	}
 });
