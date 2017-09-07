@@ -12,6 +12,27 @@ define(['jquery','template','util','bootstrap','form'],function($,template,util)
 		success: function(data){
 			var html = template('lessonTpl',data.result);
 			$('#lessonInfo').html(html);
+
+			//表单提交公用功能
+			function submitForm(url,ctId){
+				var param = {ct_cs_id: csId}; 
+				if(ctId){
+					param.ct_id = ctId;
+				}
+				$('#submitBtn').click(function(){
+					$('#modalForm').ajaxSubmit({
+						type: 'post',
+						url: url,
+						data: param,
+						dataType: 'json',
+						success: function(data){
+							if( data.code == 200){
+								location.reload();
+							}
+						}
+					})
+				})
+			}
 			//处理添加功能
 			$('#addBtn').click(function(){
 				//渲染模板
@@ -19,7 +40,11 @@ define(['jquery','template','util','bootstrap','form'],function($,template,util)
 				$('#modalInfo').html(html);
 				//直接弹窗
 				$('#chapterModal').modal();
+				//添加提交表单
+				submitForm('/api/course/chapter/add');
 			});
+
+
 			//处理编辑功能
 			$('.editLesson').click(function(){
 				//先查询数据
@@ -38,9 +63,8 @@ define(['jquery','template','util','bootstrap','form'],function($,template,util)
 						$('#modalInfo').html(html);
 						//显示模态框
 						$('#chapterModal').modal();
-					},
-					error: function(aaa){
-						console.log(aaa)
+						//编辑课时提交
+						submitForm('/api/course/chapter/modify',ctId);
 					}
 				});
 			});
